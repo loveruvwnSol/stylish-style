@@ -15,8 +15,7 @@ const App = () => {
       const {
         data: { session },
       } = await supabase.auth.getSession();
-      if (session == null || document.referrer === "") navigate("/login");
-      else console.log(session);
+      if (session == null) navigate("/login");
       setSession(session);
     };
     session();
