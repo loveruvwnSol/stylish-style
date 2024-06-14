@@ -35,7 +35,7 @@ export const CreateAccount = () => {
             Create Account
           </Text>
           <CreateAccountForm />
-          <RegisterLink path="login" text="Already have account?" />
+          <RegisterLink path="login" text="Already have an account?" />
         </Box>
       </Box>
     </Box>
