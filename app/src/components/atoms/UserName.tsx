@@ -1,15 +1,14 @@
-import { Text } from '@chakra-ui/react';
-import React from 'react';
+import { Text } from "@chakra-ui/react";
+import React from "react";
 
-const UserName = () => {
+type UserNameProps = {
+  username: string;
+};
+
+const UserName: React.FC<UserNameProps> = ({ username }) => {
   return (
-    <Text
-      fontSize={20}
-      fontWeight={'bold'}
-      mt={6}
-      mb={10}
-    >
-      Jason Susanto
+    <Text fontSize={20} fontWeight={"bold"} mt={6} mb={10}>
+      {username}
     </Text>
   );
 };
