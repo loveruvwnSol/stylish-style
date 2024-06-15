@@ -4,11 +4,11 @@ import { IconType } from 'react-icons';
 import React from 'react';
 
 type SideBarItemProps = {
-  menuIcon: IconType;
-  menuTitle: string;
+  SidebarIcon: IconType;
+  Title: string;
 };
 
-const SideBarItem: React.FC<SideBarItemProps> = ({ menuTitle, menuIcon }) => {
+const SideBarItem: React.FC<SideBarItemProps> = ({ Title, SidebarIcon }) => {
   return (
     <>
       <Box
@@ -17,10 +17,10 @@ const SideBarItem: React.FC<SideBarItemProps> = ({ menuTitle, menuIcon }) => {
         mb={10}
       >
         <Icon
-          as={menuIcon}
+          as={SidebarIcon}
           mr={2}
         ></Icon>
-        <Text fontSize={16}>{menuTitle}</Text>
+        <Text fontSize={16}>{Title}</Text>
       </Box>
     </>
   );

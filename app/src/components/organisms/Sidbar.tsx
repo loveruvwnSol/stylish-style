@@ -3,13 +3,12 @@ import React from 'react';
 import { Logo } from '../molecules/Logo';
 import UserIcon from '../atoms/UserIcon';
 import UserName from '../atoms/UserName';
-import SideBarItem from '../atoms/SideBarItem';
+import SideBarItem from './SidebarItem';
 import { FiHome } from 'react-icons/fi';
 import { TfiMenuAlt } from 'react-icons/tfi';
 import { RiShareForwardLine } from 'react-icons/ri';
 import { IoSettingsOutline } from 'react-icons/io5';
-import LogoutBotton from '../atoms/LogoutBotton';
-import { pbkdf2 } from 'crypto';
+import LogoutButton from '../molecules/LogoutBotton';
 
 const Sidebar = () => {
   return (
@@ -54,23 +53,23 @@ const Sidebar = () => {
         >
           <Box>
             <SideBarItem
-              menuIcon={FiHome}
-              menuTitle={'Dashboard'}
+              SidebarIcon={FiHome}
+              Title={'Dashboard'}
             />
             <SideBarItem
-              menuIcon={TfiMenuAlt}
-              menuTitle={'Clothes'}
+              SidebarIcon={TfiMenuAlt}
+              Title={'Clothes'}
             />
             <SideBarItem
-              menuIcon={RiShareForwardLine}
-              menuTitle={'Share'}
+              SidebarIcon={RiShareForwardLine}
+              Title={'Share'}
             />
             <SideBarItem
-              menuIcon={IoSettingsOutline}
-              menuTitle={'Setting'}
+              SidebarIcon={IoSettingsOutline}
+              Title={'Setting'}
             />
             <Box>
-              <LogoutBotton />
+              <LogoutButton />
             </Box>
           </Box>
         </Box>

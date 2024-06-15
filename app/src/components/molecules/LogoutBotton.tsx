@@ -2,7 +2,7 @@ import { Box, Text } from '@chakra-ui/react';
 import React from 'react';
 import { BiLogOut } from 'react-icons/bi';
 
-const LogoutBotton = () => {
+const LogoutButton = () => {
   return (
     <Box
       display={'flex'}
@@ -17,4 +17,4 @@ const LogoutBotton = () => {
   );
 };
 
-export default LogoutBotton;
+export default LogoutButton;

@@ -6,7 +6,7 @@ export const Home = () => {
     <Box
       width={'100%'}
       height={'100vh'}
-      backgroundColor='#E8A286'
+      backgroundColor={'#E8A286'}
       display={'flex'}
       alignItems={'center'}
       justifyContent={'center'}
