@@ -9,8 +9,8 @@ const LogoutButton = () => {
       display={"flex"}
       alignItems={"center"}
       fontSize={16}
-      pt={10}
-      pb={6}
+      // pt={10}
+      // pb={6}
       _hover={{ opacity: 0.5 }}
     >
       <Button
