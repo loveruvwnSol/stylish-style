@@ -10,7 +10,7 @@ export const useUser = () => {
       const { data, error } = await supabase
         .from("users")
         .select()
-        .eq("email", currentUser.user?.email);
+        .eq("id", currentUser.user?.id);
       if (!error) {
         setUser(data[0]);
       }

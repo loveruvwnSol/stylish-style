@@ -5,6 +5,7 @@ import { Home } from "./pages/Home";
 import { useEffect, useState } from "react";
 import { supabase } from "./libs/supabaseClient";
 import { Session } from "@supabase/supabase-js";
+import { UsernameSetting } from "./pages/UsernameSetting";
 
 const App = () => {
   const navigate = useNavigate();
@@ -19,12 +20,13 @@ const App = () => {
       setSession(session);
     };
     session();
-  });
+  },[]);
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/createAccount" element={<CreateAccount />} />
+      <Route path="/usernameSetting" element={<UsernameSetting />} />
     </Routes>
   );
 };
