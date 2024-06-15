@@ -2,7 +2,7 @@ import { Box } from "@chakra-ui/react";
 import { Logo } from "../molecules/Logo";
 import UserIcon from "../atoms/UserIcon";
 import UserName from "../atoms/UserName";
-import SideBarItem from "./SidebarItem";
+import SideBarItem from "../molecules/SidebarItem";
 import { FiHome } from "react-icons/fi";
 import { TfiMenuAlt } from "react-icons/tfi";
 import { RiShareForwardLine } from "react-icons/ri";
@@ -26,7 +26,7 @@ const Sidebar = () => {
       padding={4}
     >
       <Box width="100%" textAlign="center">
-        <Box mb={10} mt={8}>
+        <Box mb={8} mt={8}>
           <Logo />
         </Box>
         <UserIcon />
@@ -47,13 +47,23 @@ const Sidebar = () => {
           alignItems="center"
         >
           <Box>
-            <SideBarItem SidebarIcon={FiHome} Title={"Dashboard"} />
-            <SideBarItem SidebarIcon={TfiMenuAlt} Title={"Clothes"} />
-            <SideBarItem SidebarIcon={RiShareForwardLine} Title={"Share"} />
-            <SideBarItem SidebarIcon={IoSettingsOutline} Title={"Setting"} />
-            <Box>
-              <LogoutButton />
-            </Box>
+            <SideBarItem path="/" SidebarIcon={FiHome} Title={"Dashboard"} />
+            <SideBarItem
+              path="/clothes"
+              SidebarIcon={TfiMenuAlt}
+              Title={"Clothes"}
+            />
+            <SideBarItem
+              path="/share"
+              SidebarIcon={RiShareForwardLine}
+              Title={"Share"}
+            />
+            <SideBarItem
+              path="/setting"
+              SidebarIcon={IoSettingsOutline}
+              Title={"Setting"}
+            />
+            <LogoutButton />
           </Box>
         </Box>
       </Box>
