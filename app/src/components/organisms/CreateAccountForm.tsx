@@ -3,22 +3,12 @@ import { useState } from "react";
 import { useRegister } from "../../hooks/useRegister";
 
 export const CreateAccountForm = () => {
-  const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [{ createAccount }] = useRegister();
 
   return (
     <FormControl mt={16}>
-      <FormLabel opacity={0.5}>User name</FormLabel>
-      <Input
-        type="text"
-        id="name"
-        placeholder="Jason Susanto"
-        height={16}
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
       <FormLabel opacity={0.5} mt={10}>
         Email
       </FormLabel>
@@ -49,7 +39,7 @@ export const CreateAccountForm = () => {
         width={"100%"}
         height={16}
         _hover={{ opacity: 0.7 }}
-        onClick={() => createAccount(name, email, password)}
+        onClick={() => createAccount(email, password)}
       >
         Create Account
       </Button>
