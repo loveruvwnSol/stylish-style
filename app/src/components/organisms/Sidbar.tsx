@@ -8,7 +8,7 @@ import { FiHome } from 'react-icons/fi';
 import { TfiMenuAlt } from 'react-icons/tfi';
 import { RiShareForwardLine } from 'react-icons/ri';
 import { IoSettingsOutline } from 'react-icons/io5';
-import LogoutButton from '../molecules/LogoutBotton';
+import LogoutButton from '../molecules/LogoutButton';
 
 const Sidebar = () => {
   return (
