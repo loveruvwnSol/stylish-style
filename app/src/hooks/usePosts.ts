@@ -55,5 +55,25 @@ export const usePosts = () => {
     }
   };
 
-  return { posts, uploadPost, deletePost };
+  const toggleLike = async (post_id: number, user_id: UUID) => {
+    const { data } = await supabase
+      .from("likes")
+      .select()
+      .eq("user_id", user_id)
+      .eq("post_id", post_id);
+    if (data?.length == 0 || !data) {
+      const { data } = await supabase
+        .from("likes")
+        .insert({ user_id: user_id, post_id: post_id })
+        .select();
+    } else {
+      const response = await supabase
+        .from("likes")
+        .delete()
+        .eq("user_id", user_id)
+        .eq("post_id", post_id);
+    }
+  };
+
+  return [{ posts, uploadPost, deletePost, toggleLike }];
 };
