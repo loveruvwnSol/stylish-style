@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/react';
-import ClothName from './ClothName';
+import ClothName from '../atoms/ClothName';
 
-const ClothFhoto = () => {
+const ClothPhoto = () => {
   return (
     <Box
       w={'8rem'}
@@ -18,4 +18,4 @@ const ClothFhoto = () => {
   );
 };
 
-export default ClothFhoto;
+export default ClothPhoto;

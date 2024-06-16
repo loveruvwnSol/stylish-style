@@ -1,5 +1,5 @@
 import { Box, Text } from '@chakra-ui/react';
-import ClothFhoto from '../atoms/ClothFhoto';
+import ClothPhoto from './ClothPhoto';
 
 const Clothes = () => {
   return (
@@ -8,11 +8,11 @@ const Clothes = () => {
         mt={10}
         display={'flex'}
       >
-        <ClothFhoto />
-        <ClothFhoto />
-        <ClothFhoto />
-        <ClothFhoto />
-        <ClothFhoto />
+        <ClothPhoto />
+        <ClothPhoto />
+        <ClothPhoto />
+        <ClothPhoto />
+        <ClothPhoto />
         <Box
           display={'flex'}
           alignItems={'end'}
