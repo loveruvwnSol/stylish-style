@@ -11,7 +11,7 @@ import LogoutButton from "../molecules/LogoutButton";
 import { useUser } from "../../hooks/useUser";
 
 const Sidebar = () => {
-  const user = useUser();
+  const { user } = useUser();
   return (
     <Box
       width={250}

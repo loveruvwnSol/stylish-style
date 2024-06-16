@@ -2,7 +2,7 @@ import { AspectRatio, Box, Image } from "@chakra-ui/react";
 import { useUserIcon } from "../../hooks/useUser";
 
 const UserIcon = () => {
-  const userIcon = useUserIcon();
+  const { userIcon } = useUserIcon();
   return (
     <Box
       border={"solid 1px lightgray"}
