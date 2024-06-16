@@ -109,7 +109,7 @@ export const useClothes = () => {
     if (!error) {
       setClothes(data);
       const { error } = await supabase.storage
-        .from("avatars")
+        .from("clothes")
         .remove([user_id + "/" + id + "_image"]);
       if (error) {
         alert(error.message);
