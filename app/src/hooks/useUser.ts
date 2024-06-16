@@ -30,7 +30,7 @@ export const useUser = () => {
     } else alert(error.message);
   };
 
-  return { user, updateUsername };
+  return [{ user, updateUsername }];
 };
 
 export const useUserIcon = () => {
@@ -81,5 +81,5 @@ export const useUserIcon = () => {
     else alert("update your icon");
   };
 
-  return { userIcon, uploadUserIcon, updateUserIcon };
+  return [{ userIcon, uploadUserIcon, updateUserIcon }];
 };
