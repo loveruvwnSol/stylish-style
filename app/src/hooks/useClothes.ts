@@ -35,17 +35,17 @@ export const useClothes = () => {
   };
 
   const uploadClothes = async (
+    user_id: UUID,
     name: string,
     type: string,
     favorite: boolean,
     color: string,
     file: File
   ) => {
-    const { data: currentUser } = await supabase.auth.getUser();
     const { error } = await supabase
       .from("clothes")
       .insert({
-        user_id: currentUser.user?.id,
+        user_id: user_id,
         name: name,
         type: type,
         favorite: favorite,
@@ -58,14 +58,10 @@ export const useClothes = () => {
         .select();
       const { error } = await supabase.storage
         .from("clothes")
-        .upload(
-          currentUser.user?.id + "/" + allClothesLength?.length + "_image",
-          file,
-          {
-            cacheControl: "3600",
-            upsert: false,
-          }
-        );
+        .upload(user_id + "/" + allClothesLength?.length + "_image", file, {
+          cacheControl: "3600",
+          upsert: false,
+        });
       if (error) alert(error.message);
       else alert("upload your clothes");
     }
