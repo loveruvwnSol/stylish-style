@@ -119,13 +119,15 @@ export const useClothes = () => {
     }
   };
 
-  return {
-    clothes,
-    favClothes,
-    uploadClothes,
-    updateClothes,
-    updateClothesImage,
-    toggleFavorite,
-    deleteClothes,
-  };
+  return [
+    {
+      clothes,
+      favClothes,
+      uploadClothes,
+      updateClothes,
+      updateClothesImage,
+      toggleFavorite,
+      deleteClothes,
+    },
+  ];
 };
