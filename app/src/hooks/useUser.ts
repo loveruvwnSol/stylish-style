@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../libs/supabaseClient";
 import { UUID } from "crypto";
+import axios from "axios";
 
 export const useUser = () => {
   const [user, setUser] = useState<any>();
@@ -41,11 +42,15 @@ export const useUserIcon = () => {
 
   const getUserIcon = async () => {
     const { data: currentUser } = await supabase.auth.getUser();
-    const { data: icon } = await supabase.storage
-      .from("user_icons")
-      .getPublicUrl(currentUser.user?.id + "/icon");
-    setUserIcon(icon.publicUrl);
-    if (!userIcon) getDefaultIcon();
+    try {
+      const { data: icon } = await supabase.storage
+        .from("user_icons")
+        .getPublicUrl(currentUser.user?.id + "/icon");
+      await axios.get(icon.publicUrl);
+      setUserIcon(icon.publicUrl);
+    } catch (err) {
+      getDefaultIcon();
+    }
   };
 
   const getDefaultIcon = async () => {
