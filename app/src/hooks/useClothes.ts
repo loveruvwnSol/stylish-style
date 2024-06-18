@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../libs/supabaseClient";
-import { UUID } from "crypto";
 
 export const useClothes = () => {
   const [clothes, setClothes] = useState<any[]>([]);
   const [favClothes, setFavClothes] = useState<any[]>([]);
+  const [top, setTop] = useState<any>();
+  const [bottom, setBottom] = useState<any>();
 
   useEffect(() => {
     getClothes();
@@ -35,7 +36,7 @@ export const useClothes = () => {
   };
 
   const uploadClothes = async (
-    user_id: UUID,
+    user_id: string | undefined,
     name: string,
     type: string,
     favorite: boolean,
@@ -81,7 +82,11 @@ export const useClothes = () => {
     else alert("update your clothes");
   };
 
-  const updateClothesImage = async (id: number, user_id: UUID, file: File) => {
+  const updateClothesImage = async (
+    id: number,
+    user_id: string | undefined,
+    file: File
+  ) => {
     const { error } = await supabase.storage
       .from("clothes")
       .update(user_id + "/" + id + "_image", file, {
@@ -100,7 +105,7 @@ export const useClothes = () => {
     if (error) alert(error.message);
   };
 
-  const deleteClothes = async (id: number, user_id: UUID) => {
+  const deleteClothes = async (id: number, user_id: string | undefined) => {
     const response = await supabase.from("countries").delete().eq("id", id);
     const { data, error } = await supabase
       .from("clothes")
@@ -119,15 +124,46 @@ export const useClothes = () => {
     }
   };
 
+  const decideStyle = async (
+    user_id: string | undefined
+    // favorite: boolean | null,
+    // topColor: string | null,
+    // bottomColor: string | null
+  ) => {
+    const { data: tops, error } = await supabase
+      .from("clothes")
+      .select()
+      .eq("user_id", user_id)
+      .eq("type", "tops");
+    // .eq("color", topColor);
+    // .eq("favorite", favorite);
+    if (!error) {
+      const { data: bottoms, error } = await supabase
+        .from("clothes")
+        .select()
+        .eq("user_id", user_id)
+        .eq("type", "bottoms");
+      // .eq("favorite", favorite)
+      // .eq("color", bottomColor);
+      if (!error) {
+        setTop(tops[Math.floor(Math.random() * tops.length)]);
+        setBottom(bottoms[Math.floor(Math.random() * bottoms.length)]);
+      } else alert(error.message);
+    } else alert(error.message);
+  };
+
   return [
     {
       clothes,
       favClothes,
+      top,
+      bottom,
       uploadClothes,
       updateClothes,
       updateClothesImage,
       toggleFavorite,
       deleteClothes,
+      decideStyle,
     },
   ];
 };
