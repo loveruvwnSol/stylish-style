@@ -1,4 +1,4 @@
-import { Box, Text } from '@chakra-ui/react';
+import { Box, Button, Text } from '@chakra-ui/react';
 import React from 'react';
 
 type ButtonCompProps = {
@@ -17,12 +17,14 @@ const ButtonComp: React.FC<ButtonCompProps> = ({ text }) => {
       alignItems={'center'}
       cursor={'pointer'}
     >
-      <Text
+      <Button
         color={'#FFF'}
         fontWeight={'bold'}
+        background={'none'}
+        border={'none'}
       >
         {text}
-      </Text>
+      </Button>
     </Box>
   );
 };
