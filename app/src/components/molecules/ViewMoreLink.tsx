@@ -8,7 +8,7 @@ const ViewMoreLink = () => {
       display={'flex'}
       justifyContent={'end'}
     >
-      <Link to={'clothes'}>
+      <Link to={'/clothes'}>
         <Text
           pl={'rem'}
           pt={'1rem'}

@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/react';
 import Sidebar from '../components/organisms/Sidebar';
-import Dashboard from '../components/organisms/Dashboard';
+import Dashboard from '../components/templates/Dashboard';
 
 export const Home = () => {
   return (
