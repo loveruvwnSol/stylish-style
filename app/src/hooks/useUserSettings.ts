@@ -1,7 +1,10 @@
-import { UUID } from "crypto";
 import { supabase } from "../libs/supabaseClient";
 
-export const useUserSettings = (id: UUID, darkmode: boolean, color: string) => {
+export const useUserSettings = (
+  id: string | undefined,
+  darkmode: boolean,
+  color: string
+) => {
   const updateUserSettings = async () => {
     const { error } = await supabase
       .from("user_settings")
