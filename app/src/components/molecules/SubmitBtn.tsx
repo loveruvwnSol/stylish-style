@@ -1,11 +1,11 @@
-import { Box, Button, Text } from '@chakra-ui/react';
+import { Box, Button } from '@chakra-ui/react';
 import React from 'react';
 
-type ButtonCompProps = {
+type SubmitBtn = {
   text: string;
 };
 
-const ButtonComp: React.FC<ButtonCompProps> = ({ text }) => {
+const SubmitBtn: React.FC<SubmitBtn> = ({ text }) => {
   return (
     <Box
       w={'180px'}
@@ -20,7 +20,7 @@ const ButtonComp: React.FC<ButtonCompProps> = ({ text }) => {
       <Button
         color={'#FFF'}
         fontWeight={'bold'}
-        bg={'transparent'}
+        bg={'none'}
         _hover={{ bg: 'transparent' }}
         border={'none'}
       >
@@ -30,4 +30,4 @@ const ButtonComp: React.FC<ButtonCompProps> = ({ text }) => {
   );
 };
 
-export default ButtonComp;
+export default SubmitBtn;
