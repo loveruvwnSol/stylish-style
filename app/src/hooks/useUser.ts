@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../libs/supabaseClient";
-import { UUID } from "crypto";
 import axios from "axios";
 
 export const useUser = () => {
@@ -21,7 +20,7 @@ export const useUser = () => {
     } else alert(error.message);
   };
 
-  const updateUsername = async (id: UUID, name: string) => {
+  const updateUsername = async (id: string | undefined, name: string) => {
     const { error } = await supabase
       .from("users")
       .update({ name: name })
@@ -60,7 +59,7 @@ export const useUserIcon = () => {
     setUserIcon(default_icon.publicUrl);
   };
 
-  const uploadUserIcon = async (id: UUID, file: File) => {
+  const uploadUserIcon = async (id: string | undefined, file: File) => {
     const { error } = await supabase.storage
       .from("user_icons")
       .upload(id + "/icon", file, {
@@ -71,7 +70,7 @@ export const useUserIcon = () => {
     else alert("upload your icon");
   };
 
-  const updateUserIcon = async (id: UUID, file: File) => {
+  const updateUserIcon = async (id: string | undefined, file: File) => {
     const { error } = await supabase.storage
       .from("user_icons")
       .update(id + "/icon", file, {

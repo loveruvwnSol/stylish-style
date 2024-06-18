@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../libs/supabaseClient";
-import { UUID } from "crypto";
 
 export const usePosts = () => {
   const [posts, setPosts] = useState<any[]>([]);
@@ -16,7 +15,7 @@ export const usePosts = () => {
   };
 
   const uploadPost = async (
-    user_id: UUID,
+    user_id: string | undefined,
     brand_name: string,
     text: string,
     file: File
@@ -55,7 +54,7 @@ export const usePosts = () => {
     }
   };
 
-  const toggleLike = async (post_id: number, user_id: UUID) => {
+  const toggleLike = async (post_id: number, user_id: string | undefined) => {
     const { data } = await supabase
       .from("likes")
       .select()
