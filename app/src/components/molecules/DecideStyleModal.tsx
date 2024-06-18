@@ -1,16 +1,7 @@
-import {
-  Box,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
-} from '@chakra-ui/react';
-import React from 'react';
-import SubmitBtn from './SubmitBtn';
-import DecideStyleBody from './DecideStyleBody';
+import { Modal } from '@chakra-ui/react';
+import React, { useState } from 'react';
+import TodaysStyleModal from './TodaysStyleModal';
+import SelectColorModal from './SelectColorModal';
 
 type DecideStyleModalProps = {
   isOpen: boolean;
@@ -18,54 +9,15 @@ type DecideStyleModalProps = {
 };
 
 const DecideStyleModal: React.FC<DecideStyleModalProps> = ({ isOpen, onClose }) => {
+  const [isDecide, setIsDecide] = useState<boolean>(false);
+
   return (
     <Modal
       isCentered
       isOpen={isOpen}
       onClose={onClose}
     >
-      <ModalOverlay />
-      <ModalContent
-        maxWidth={'860px'}
-        width={'90%'}
-        borderRadius={20}
-      >
-        <Box
-          ml={'60px'}
-          display={'flex'}
-          justifyContent={'start'}
-        >
-          <Box>
-            <ModalHeader
-              fontSize={35}
-              mt={'35px'}
-              mb={'20px'}
-            >
-              Select Options
-            </ModalHeader>
-            <Box
-              mt={'4px'}
-              mr={'4px'}
-            >
-              <ModalCloseButton
-                mt={'8px'}
-                mr={'10px'}
-              />
-            </Box>
-            <ModalBody>
-              <DecideStyleBody />
-            </ModalBody>
-          </Box>
-        </Box>
-        <ModalFooter>
-          <Box
-            mb={'8px'}
-            mr={'3px'}
-          >
-            <SubmitBtn text={'Decide style'} />
-          </Box>
-        </ModalFooter>
-      </ModalContent>
+      {isDecide ? <TodaysStyleModal /> : <SelectColorModal setIsDecide={setIsDecide} />}
     </Modal>
   );
 };
