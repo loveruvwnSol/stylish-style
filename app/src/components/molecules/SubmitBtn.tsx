@@ -20,7 +20,8 @@ const ButtonComp: React.FC<ButtonCompProps> = ({ text }) => {
       <Button
         color={'#FFF'}
         fontWeight={'bold'}
-        background={'none'}
+        bg={'transparent'}
+        _hover={{ bg: 'transparent' }}
         border={'none'}
       >
         {text}
