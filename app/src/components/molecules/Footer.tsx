@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/react';
 import ShareYourClothes from './ShareYourClothes';
-import ButtonComp from './ButtonComp';
+import SubmitBtn from './SubmitBtn';
 
 const Footer = () => {
   return (
@@ -10,7 +10,7 @@ const Footer = () => {
       justifyContent={'space-between'}
     >
       <ShareYourClothes />
-      <ButtonComp text='Decide style' />
+      <SubmitBtn text='Decide style' />
     </Box>
   );
 };

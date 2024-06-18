@@ -4,11 +4,12 @@ import ClothName from '../atoms/ClothName';
 const ClothPhoto = () => {
   return (
     <Box
-      w={'8rem'}
-      h={'8rem'}
+      w={'160px'}
+      h={'208px'}
       border={'solid 1px'}
-      borderRadius={30}
-      mr={10}
+      borderRadius={20}
+      // mr={10}
+
       display={'flex'}
       justifyContent={'center'}
       alignItems={'end'}

@@ -5,18 +5,18 @@ const ShareYourClothes = () => {
   return (
     <Box
       w={600}
-      h={230}
+      h={150}
       bgColor={'#EAF5F4'}
       borderRadius={30}
-      mt={'2.5rem'}
+      mt={'0.5rem'}
       cursor={'pointer'}
     >
       <Box
-        pt={'1.8rem'}
-        pl={'3.5rem'}
+        pt={'0.8rem'}
+        pl={'3rem'}
       >
         <Text
-          fontSize={45}
+          fontSize={40}
           fontWeight={'bold'}
         >
           Share your

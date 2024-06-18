@@ -1,5 +1,6 @@
-import { Box, Text } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import ClothPhoto from './ClothPhoto';
+import ViewMoreLink from './ViewMoreLink';
 
 const Clothes = () => {
   return (
@@ -7,27 +8,15 @@ const Clothes = () => {
       <Box
         mt={10}
         display={'flex'}
+        justifyContent={'space-between'}
       >
         <ClothPhoto />
         <ClothPhoto />
         <ClothPhoto />
         <ClothPhoto />
         <ClothPhoto />
-        <Box
-          display={'flex'}
-          alignItems={'end'}
-        >
-          <Text
-            pl={'1.5rem'}
-            pb={'0.4rem'}
-            color={'#36B8FD'}
-            textDecoration={'underline'}
-            cursor={'pointer'}
-          >
-            view more
-          </Text>
-        </Box>
       </Box>
+      <ViewMoreLink />
     </>
   );
 };

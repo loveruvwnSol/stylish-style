@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/react';
 import React from 'react';
-import Title from '../atoms/Title';
+import Title from '../atoms/HeaderTitle';
 import AddYourClothes from './AddYourClothes';
 
 const Header = () => {
@@ -9,7 +9,7 @@ const Header = () => {
       display={'flex'}
       justifyContent={'space-between'}
     >
-      <Title text={'Dashbord'} />
+      <Title text={'Dashboard'} />
       <AddYourClothes />
     </Box>
   );
