@@ -1,15 +1,14 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import reportWebVitals from "./reportWebVitals";
-import { ChakraProvider } from "@chakra-ui/react";
-import App from "./App";
-import { BrowserRouter } from "react-router-dom";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import reportWebVitals from './reportWebVitals';
+import { ChakraProvider } from '@chakra-ui/react';
+import App from './App';
+import { BrowserRouter } from 'react-router-dom';
+import theme from './theme/theme';
 
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
-);
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
-  <ChakraProvider>
+  <ChakraProvider theme={theme}>
     <React.StrictMode>
       <BrowserRouter>
         <App />
