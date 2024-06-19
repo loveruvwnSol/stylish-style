@@ -1,12 +1,13 @@
 import { Box } from "@chakra-ui/react";
 import Sidebar from "../components/organisms/Sidebar";
-import Dashboard from "../components/templates/Dashboard";
+import { SettingsBoard } from "../components/templates/SettingsBoard";
+import { useUserSettings } from "../hooks/useUserSettings";
 
-type HomeProps = {
+type SettingsProps = {
   bg: string;
 };
 
-export const Home: React.FC<HomeProps> = ({ bg }) => {
+export const Settings: React.FC<SettingsProps> = ({ bg }) => {
   return (
     <Box
       width={"100%"}
@@ -24,7 +25,7 @@ export const Home: React.FC<HomeProps> = ({ bg }) => {
         display={"flex"}
       >
         <Sidebar />
-        <Dashboard />
+        <SettingsBoard />
       </Box>
     </Box>
   );

@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import { supabase } from "./libs/supabaseClient";
 import { Session } from "@supabase/supabase-js";
 import { UsernameSetting } from "./pages/UsernameSetting";
+import { Settings } from "./pages/Settings";
+import { useUserSettings } from "./hooks/useUserSettings";
 
 const App = () => {
   const navigate = useNavigate();
@@ -20,10 +22,13 @@ const App = () => {
       setSession(session);
     };
     session();
-  },[]);
+  }, []);
+
+  const [{ userSetting }] = useUserSettings();
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Home bg={userSetting?.color} />} />
+      <Route path="/settings" element={<Settings bg={userSetting?.color} />} />
       <Route path="/login" element={<Login />} />
       <Route path="/createAccount" element={<CreateAccount />} />
       <Route path="/usernameSetting" element={<UsernameSetting />} />

@@ -29,7 +29,7 @@ const Sidebar = () => {
         <Box mb={8} mt={8}>
           <Logo />
         </Box>
-        <UserIcon />
+        <UserIcon width={"100px"} m={"0 auto"} />
         <UserName username={user?.name} />
       </Box>
       <Box
@@ -59,9 +59,9 @@ const Sidebar = () => {
               Title={"Share"}
             />
             <SideBarItem
-              path="/setting"
+              path="/settings"
               SidebarIcon={IoSettingsOutline}
-              Title={"Setting"}
+              Title={"Settings"}
             />
             <LogoutButton />
           </Box>
