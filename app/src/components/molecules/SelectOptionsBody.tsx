@@ -1,4 +1,4 @@
-import { Box, Checkbox, ChakraProvider } from '@chakra-ui/react';
+import { Box, Checkbox } from '@chakra-ui/react';
 import React from 'react';
 import SelectStyleColor from './SelectStyleColor';
 
