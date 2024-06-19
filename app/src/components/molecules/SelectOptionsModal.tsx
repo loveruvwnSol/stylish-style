@@ -8,7 +8,7 @@ import {
   ModalHeader,
   ModalOverlay,
 } from '@chakra-ui/react';
-import DecideStyleBody from './SelectOptionsBody';
+import SelectOptionsBody from './SelectOptionsBody';
 import SubmitBtn from './SubmitBtn';
 
 type SelectOptionsModalProps = {
@@ -51,7 +51,7 @@ const SelectOptionsModal: React.FC<SelectOptionsModalProps> = ({ setIsDecide }) 
               />
             </Box>
             <ModalBody>
-              <DecideStyleBody />
+              <SelectOptionsBody />
             </ModalBody>
           </Box>
         </Box>
