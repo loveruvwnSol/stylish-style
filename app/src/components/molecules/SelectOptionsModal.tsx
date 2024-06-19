@@ -8,14 +8,14 @@ import {
   ModalHeader,
   ModalOverlay,
 } from '@chakra-ui/react';
-import DecideStyleBody from './DecideStyleBody';
+import DecideStyleBody from './SelectOptionsBody';
 import SubmitBtn from './SubmitBtn';
 
-type SelectColorModalProps = {
+type SelectOptionsModalProps = {
   setIsDecide: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const SelectColorModal: React.FC<SelectColorModalProps> = ({ setIsDecide }) => {
+const SelectOptionsModal: React.FC<SelectOptionsModalProps> = ({ setIsDecide }) => {
   const clickHandler = () => {
     setIsDecide(true);
   };
@@ -69,4 +69,4 @@ const SelectColorModal: React.FC<SelectColorModalProps> = ({ setIsDecide }) => {
   );
 };
 
-export default SelectColorModal;
+export default SelectOptionsModal;

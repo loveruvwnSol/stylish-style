@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/react';
 import Header from '../molecules/Header';
 import Myfavorite from '../molecules/Myfavorite';
-import Footer from '../molecules/Footer';
+import Footer from '../organisms/Footer';
 
 const Dashboard = () => {
   return (

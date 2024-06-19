@@ -1,7 +1,7 @@
 import { Modal } from '@chakra-ui/react';
 import React, { useState } from 'react';
-import TodaysStyleModal from './TodaysStyleModal';
-import SelectColorModal from './SelectColorModal';
+import TodaysStyleModal from '../molecules/TodaysStyleModal';
+import SelectColorModal from '../molecules/SelectOptionsModal';
 
 type DecideStyleModalProps = {
   isOpen: boolean;

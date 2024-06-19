@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Box, Select, Text } from '@chakra-ui/react';
 
-type DecideStyleSelectProps = {
+type SelectStyleColorProps = {
   text: string;
 };
 
-const DecideStyleSelect: React.FC<DecideStyleSelectProps> = ({ text }) => {
+const SelectStyleColor: React.FC<SelectStyleColorProps> = ({ text }) => {
   const [selectedValue, setSelectedValue] = useState<string>('');
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -47,4 +47,4 @@ const DecideStyleSelect: React.FC<DecideStyleSelectProps> = ({ text }) => {
   );
 };
 
-export default DecideStyleSelect;
+export default SelectStyleColor;

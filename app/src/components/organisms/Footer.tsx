@@ -1,6 +1,6 @@
 import { Box, useDisclosure } from '@chakra-ui/react';
-import ShareYourClothes from './ShareYourClothes';
-import SubmitBtn from './SubmitBtn';
+import ShareYourClothes from '../molecules/ShareYourClothes';
+import SubmitBtn from '../molecules/SubmitBtn';
 import DecideStyleModal from './DecideStyleModal';
 import React from 'react';
 
