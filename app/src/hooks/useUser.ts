@@ -6,7 +6,7 @@ export const useUser = () => {
   const [user, setUser] = useState<any>();
   useEffect(() => {
     getCurrentUser();
-  }, []);
+  }, [user]);
 
   const getCurrentUser = async () => {
     const { data: currentUser } = await supabase.auth.getUser();
@@ -17,7 +17,7 @@ export const useUser = () => {
       .eq("id", currentUser.user?.id);
     if (!error) {
       setUser(data[0]);
-    } else alert(error.message);
+    }
   };
 
   const updateUsername = async (id: string | undefined, name: string) => {
@@ -26,7 +26,6 @@ export const useUser = () => {
       .update({ name: name })
       .eq("id", id);
     if (!error) {
-      getCurrentUser();
     } else alert(error.message);
   };
 
@@ -37,7 +36,7 @@ export const useUserIcon = () => {
   const [userIcon, setUserIcon] = useState<any>();
   useEffect(() => {
     getUserIcon();
-  }, [userIcon]);
+  }, []);
 
   const getUserIcon = async () => {
     const { data: currentUser } = await supabase.auth.getUser();
@@ -64,22 +63,13 @@ export const useUserIcon = () => {
       .from("user_icons")
       .upload(id + "/icon", file, {
         cacheControl: "3600",
-        upsert: false,
-      });
-    if (error) alert(error.message);
-    else alert("upload your icon");
-  };
-
-  const updateUserIcon = async (id: string | undefined, file: File) => {
-    const { error } = await supabase.storage
-      .from("user_icons")
-      .update(id + "/icon", file, {
-        cacheControl: "3600",
         upsert: true,
       });
     if (error) alert(error.message);
-    else alert("update your icon");
+    else {
+      alert("upload your icon");
+    }
   };
 
-  return [{ userIcon, uploadUserIcon, updateUserIcon }];
+  return [{ userIcon, uploadUserIcon }];
 };

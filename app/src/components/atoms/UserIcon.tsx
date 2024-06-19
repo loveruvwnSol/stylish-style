@@ -1,17 +1,22 @@
 import { AspectRatio, Box, Image } from "@chakra-ui/react";
 import { useUserIcon } from "../../hooks/useUser";
 
-const UserIcon = () => {
+type UserIconProps = {
+  m: string;
+  width: string;
+};
+
+const UserIcon: React.FC<UserIconProps> = ({ m, width }) => {
   const [{ userIcon }] = useUserIcon();
   return (
     <Box
       border={"solid 1px lightgray"}
       borderRadius={"50%"}
-      w={100}
-      h={100}
-      m={"0 auto"}
+      w={width}
+      h={width}
+      m={m}
     >
-      <AspectRatio maxW="500px" ratio={1}>
+      <AspectRatio width={width} maxW="500px" ratio={1}>
         <Image borderRadius={"50%"} src={userIcon} />
       </AspectRatio>
     </Box>
