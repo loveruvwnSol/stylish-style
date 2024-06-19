@@ -5,7 +5,7 @@ type TitleProps = {
   text: string;
 };
 
-const Title: React.FC<TitleProps> = ({ text }) => {
+const HeaderTitle: React.FC<TitleProps> = ({ text }) => {
   return (
     <Text
       fontSize={56}
@@ -17,4 +17,4 @@ const Title: React.FC<TitleProps> = ({ text }) => {
   );
 };
 
-export default Title;
+export default HeaderTitle;
