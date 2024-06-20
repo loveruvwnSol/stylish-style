@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/react';
 import Header from '../molecules/Header';
-import Myfavorite from '../molecules/Myfavorite';
+import Myfavorite from '../molecules/ClothesName';
 import Footer from '../organisms/Footer';
 
 const Dashboard = () => {
@@ -12,7 +12,12 @@ const Dashboard = () => {
       pr={'4rem'}
     >
       <Header />
-      <Myfavorite />
+      <Myfavorite
+        text={'My favorite'}
+        w={'160px'}
+        h={'208px'}
+        isShow={true}
+      />
       <Footer />
     </Box>
   );

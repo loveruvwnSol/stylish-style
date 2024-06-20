@@ -1,11 +1,11 @@
 import { Box, Button } from '@chakra-ui/react';
 import React from 'react';
 
-type SubmitBtn = {
+type SubmitBtnProps = {
   text: string;
 };
 
-const SubmitBtn: React.FC<SubmitBtn> = ({ text }) => {
+const SubmitBtn: React.FC<SubmitBtnProps> = ({ text }) => {
   return (
     <Box
       w={'180px'}
