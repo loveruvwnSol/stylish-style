@@ -1,22 +1,20 @@
-import { Box, Button, Text } from "@chakra-ui/react";
-import { BiLogOut } from "react-icons/bi";
-import { useRegister } from "../../hooks/useRegister";
+import { Box, Button, Text } from '@chakra-ui/react';
+import { BiLogOut } from 'react-icons/bi';
+import { useRegister } from '../../hooks/useRegister';
 
 const LogoutButton = () => {
   const [{ logout }] = useRegister();
   return (
     <Box
-      display={"flex"}
-      alignItems={"center"}
+      display={'flex'}
+      alignItems={'center'}
       fontSize={16}
-      // pt={10}
-      // pb={6}
       _hover={{ opacity: 0.5 }}
     >
       <Button
         p={0}
-        background={"unset"}
-        fontWeight={"normal"}
+        background={'unset'}
+        fontWeight={'normal'}
         onClick={() => logout()}
         _hover={{ opacity: 1 }}
       >
