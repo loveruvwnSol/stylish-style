@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/react';
 import Header from '../molecules/Header';
-import Myfavorite from '../molecules/Myfavorite';
+import Myfavorite from '../molecules/ClothesName';
 import Footer from '../organisms/Footer';
 
 const Dashboard = () => {

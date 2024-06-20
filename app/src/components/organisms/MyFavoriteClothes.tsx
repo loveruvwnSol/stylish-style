@@ -1,5 +1,4 @@
-import React from 'react';
-import Myfavorite from '../molecules/Myfavorite';
+import Myfavorite from '../molecules/ClothesName';
 import { Box } from '@chakra-ui/react';
 
 const MyFavoriteClothes = () => {

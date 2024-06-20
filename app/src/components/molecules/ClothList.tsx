@@ -2,13 +2,13 @@ import { Box } from '@chakra-ui/react';
 import ClothPhoto from './ClothPhoto';
 import ViewMoreLink from './ViewMoreLink';
 
-type ClothesProps = {
+type ClothListProps = {
   w: string;
   h: string;
   isShowLink: boolean;
 };
 
-const Clothes: React.FC<ClothesProps> = ({ w, h, isShowLink }) => {
+const ClothList: React.FC<ClothListProps> = ({ w, h, isShowLink }) => {
   return (
     <>
       <Box
@@ -42,4 +42,4 @@ const Clothes: React.FC<ClothesProps> = ({ w, h, isShowLink }) => {
   );
 };
 
-export default Clothes;
+export default ClothList;

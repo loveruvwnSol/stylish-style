@@ -2,16 +2,16 @@
 import { Box, Text } from '@chakra-ui/react';
 import React from 'react';
 import { IoIosStar } from 'react-icons/io';
-import Clothes from './Clothes'; // Clothesコンポーネントのパスを正しく設定してください
+import Clothes from './ClothList';
 
-type MyClothesProps = {
+type ClothesNameProps = {
   isShow: boolean;
   text: string;
   w: string;
   h: string;
 };
 
-const MyClothes: React.FC<MyClothesProps> = ({ isShow, text, w, h }) => {
+const ClothesName: React.FC<ClothesNameProps> = ({ isShow, text, w, h }) => {
   return (
     <Box>
       {isShow ? (
@@ -68,4 +68,4 @@ const MyClothes: React.FC<MyClothesProps> = ({ isShow, text, w, h }) => {
   );
 };
 
-export default MyClothes;
+export default ClothesName;

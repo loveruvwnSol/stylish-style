@@ -1,5 +1,4 @@
 import { Box } from '@chakra-ui/react';
-import React from 'react';
 import Title from '../atoms/HeaderTitle';
 import AddYourClothes from './AddYourClothes';
 

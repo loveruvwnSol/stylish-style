@@ -10,10 +10,6 @@ type ClothPhotoProps = {
 const ClothPhoto: React.FC<ClothPhotoProps> = ({ w, h }) => {
   return (
     <Box
-      // w={'160px'}
-      // h={'208px'}
-      // w={'140px'}
-      // h={'140px'}
       w={w}
       h={h}
       border={'solid 1px'}
