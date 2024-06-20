@@ -13,6 +13,7 @@ const Footer: React.FC = () => {
         display='flex'
         alignItems='end'
         justifyContent='space-between'
+        mt={10}
       >
         <ShareYourClothes />
         <Box onClick={onOpen}>

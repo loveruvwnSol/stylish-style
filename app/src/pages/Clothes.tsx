@@ -1,12 +1,12 @@
 import { Box } from '@chakra-ui/react';
 import Sidebar from '../components/organisms/Sidebar';
-import { SettingsBoard } from '../components/templates/SettingsBoard';
+import ClothesBoard from '../components/templates/ClothesBoard';
 
-type SettingsProps = {
+type ClothesProps = {
   bg: string;
 };
 
-export const Settings: React.FC<SettingsProps> = ({ bg }) => {
+const Clothes: React.FC<ClothesProps> = ({ bg }) => {
   return (
     <Box
       width={'100%'}
@@ -24,8 +24,10 @@ export const Settings: React.FC<SettingsProps> = ({ bg }) => {
         display={'flex'}
       >
         <Sidebar />
-        <SettingsBoard />
+        <ClothesBoard />
       </Box>
     </Box>
   );
 };
+
+export default Clothes;

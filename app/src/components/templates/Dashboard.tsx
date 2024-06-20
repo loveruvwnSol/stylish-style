@@ -12,7 +12,12 @@ const Dashboard = () => {
       pr={'4rem'}
     >
       <Header />
-      <Myfavorite />
+      <Myfavorite
+        text={'My favorite'}
+        w={'160px'}
+        h={'208px'}
+        isShow={true}
+      />
       <Footer />
     </Box>
   );
