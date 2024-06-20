@@ -1,10 +1,10 @@
-import Myfavorite from '../molecules/ClothesName';
+import ClothesName from '../molecules/ClothesName';
 import { Box } from '@chakra-ui/react';
 
 const MyFavoriteClothes = () => {
   return (
     <Box mt={10}>
-      <Myfavorite
+      <ClothesName
         text={'My favorite'}
         w={'155px'}
         h={'155px'}
