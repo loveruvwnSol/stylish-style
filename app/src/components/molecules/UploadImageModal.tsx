@@ -61,7 +61,6 @@ export const UploadImageModal: React.FC<UploadImageModalProps> = ({
             stylish cloth photo
           </Text>
           <Input
-            value={file}
             type="file"
             ref={fileInputRef}
             display={"none"}

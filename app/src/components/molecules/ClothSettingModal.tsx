@@ -20,7 +20,7 @@ type ClothSettingModal = {
   isUploaded: boolean;
   setIsUploaded: Dispatch<SetStateAction<boolean>>;
   preview: string | undefined;
-  file: File;
+  file: any;
 };
 
 export const ClothSettingModal: React.FC<ClothSettingModal> = ({
@@ -46,7 +46,15 @@ export const ClothSettingModal: React.FC<ClothSettingModal> = ({
         pb={30}
         borderRadius={20}
       >
-        <ModalCloseButton mt={"8px"} mr={"10px"} />
+        <ModalCloseButton
+          mt={"8px"}
+          mr={"10px"}
+          onClick={() => {
+            file = undefined;
+            preview = "";
+            setIsUploaded(!isUploaded);
+          }}
+        />
         <ModalBody
           display={"flex"}
           alignItems={"center"}
@@ -68,7 +76,6 @@ export const ClothSettingModal: React.FC<ClothSettingModal> = ({
               variant="flushed"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              required
             />
             <Select
               mt={10}
@@ -77,7 +84,6 @@ export const ClothSettingModal: React.FC<ClothSettingModal> = ({
               value={type}
               onChange={(e) => setType(e.target.value)}
               opacity={type ? "1" : "0.5"}
-              required
             >
               <option value="" selected hidden>
                 type
@@ -92,7 +98,6 @@ export const ClothSettingModal: React.FC<ClothSettingModal> = ({
               value={color}
               onChange={(e) => setColor(e.target.value)}
               opacity={color ? "1" : "0.5"}
-              required
             >
               <option value="" selected hidden>
                 color
@@ -103,7 +108,7 @@ export const ClothSettingModal: React.FC<ClothSettingModal> = ({
               <option value={"yellow"}>yellow</option>
             </Select>
             <Checkbox onChange={() => setFav(!fav)} mt={10}>
-              Only your favorite
+              favorite
             </Checkbox>
           </Box>
         </ModalBody>

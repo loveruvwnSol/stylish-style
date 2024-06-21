@@ -1,7 +1,15 @@
-import { Text } from '@chakra-ui/react';
+import { Text } from "@chakra-ui/react";
 
-const ClothName = () => {
-  return <Text pb={'0.3rem'}>Cloth Name</Text>;
+type ClothNameProps = {
+  name: string;
+};
+
+const ClothName: React.FC<ClothNameProps> = ({ name }) => {
+  return (
+    <Text mt={2} textAlign={"center"} pb={"0.3rem"}>
+      {name}
+    </Text>
+  );
 };
 
 export default ClothName;
