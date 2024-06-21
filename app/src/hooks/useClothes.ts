@@ -4,13 +4,13 @@ import { supabase } from "../libs/supabaseClient";
 export const useClothes = () => {
   const [clothes, setClothes] = useState<any[]>([]);
   const [favClothes, setFavClothes] = useState<any[]>([]);
-  const [top, setTop] = useState<any>();
-  const [bottom, setBottom] = useState<any>();
+  const [top, setTop] = useState<number>();
+  const [bottom, setBottom] = useState<number>();
 
   useEffect(() => {
     getClothes();
     getFavoriteClothes();
-  }, []);
+  }, [clothes, favClothes]);
 
   const getClothes = async () => {
     const { data: currentUser } = await supabase.auth.getUser();
@@ -146,10 +146,15 @@ export const useClothes = () => {
       // .eq("favorite", favorite)
       // .eq("color", bottomColor);
       if (!error) {
-        setTop(tops[Math.floor(Math.random() * tops.length)]);
-        setBottom(bottoms[Math.floor(Math.random() * bottoms.length)]);
+        setTop(tops[Math.floor(Math.random() * tops.length)].id);
+        setBottom(bottoms[Math.floor(Math.random() * bottoms.length)].id);
       } else alert(error.message);
     } else alert(error.message);
+  };
+
+  const getStyle = () => {
+    setTop(top);
+    setBottom(bottom);
   };
 
   return [
@@ -164,6 +169,7 @@ export const useClothes = () => {
       toggleFavorite,
       deleteClothes,
       decideStyle,
+      getStyle,
     },
   ];
 };
