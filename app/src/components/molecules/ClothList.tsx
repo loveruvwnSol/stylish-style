@@ -2,7 +2,6 @@ import { Box, Text } from "@chakra-ui/react";
 import ClothPhoto from "./ClothPhoto";
 import ViewMoreLink from "./ViewMoreLink";
 import { supabase } from "../../libs/supabaseClient";
-import { useEffect } from "react";
 
 type ClothListProps = {
   clothes: any[];
