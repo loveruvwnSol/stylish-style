@@ -16,6 +16,9 @@ const SubmitBtn: React.FC<SubmitBtnProps> = ({ text }) => {
       justifyContent={'center'}
       alignItems={'center'}
       cursor={'pointer'}
+      _hover={{
+        opacity: 0.5,
+      }}
     >
       <Button
         color={'#FFF'}

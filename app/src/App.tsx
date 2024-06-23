@@ -9,6 +9,7 @@ import { UsernameSetting } from './pages/UsernameSetting';
 import { Settings } from './pages/Settings';
 import { useUserSettings } from './hooks/useUserSettings';
 import Clothes from './pages/Clothes';
+import Share from './pages/Share';
 
 const App = () => {
   const navigate = useNavigate();
@@ -35,6 +36,10 @@ const App = () => {
       <Route
         path='/clothes'
         element={<Clothes bg={userSetting?.color} />}
+      />
+      <Route
+        path='/share'
+        element={<Share bg={userSetting?.color} />}
       />
       <Route
         path='/settings'
