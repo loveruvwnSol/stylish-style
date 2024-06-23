@@ -11,7 +11,6 @@ export const usePosts = () => {
   const getPosts = async () => {
     const { data, error } = await supabase.from("posts").select();
     if (!error) setPosts(data);
-    else alert(error.message);
   };
 
   const uploadPost = async (
@@ -24,8 +23,7 @@ export const usePosts = () => {
       .from("posts")
       .insert({ user_id: user_id, brand_name: brand_name, text: text })
       .select();
-    if (error) alert(error.message);
-    else {
+    if (!error) {
       const { data: allPostsLength } = await supabase.from("clothes").select();
       const { error } = await supabase.storage
         .from("posts")
@@ -33,8 +31,7 @@ export const usePosts = () => {
           cacheControl: "3600",
           upsert: false,
         });
-      if (error) alert(error.message);
-      else alert("upload your post");
+      if (!error) alert("upload your post");
     }
   };
 
@@ -46,11 +43,6 @@ export const usePosts = () => {
       const { error } = await supabase.storage
         .from("posts")
         .remove([id + "/image"]);
-      if (error) {
-        alert(error.message);
-      }
-    } else {
-      alert(error.message);
     }
   };
 

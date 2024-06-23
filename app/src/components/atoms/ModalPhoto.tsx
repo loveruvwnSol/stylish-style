@@ -18,7 +18,7 @@ const ModalPhoto: React.FC<ModalPhotoProps> = ({ id }) => {
 
   useEffect(() => {
     getDecidedCloth();
-  }, [image]);
+  }, []);
 
   return (
     <Box w={270} border={"1px solid"} borderRadius={30} m={10}>

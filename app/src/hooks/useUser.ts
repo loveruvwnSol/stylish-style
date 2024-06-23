@@ -6,7 +6,7 @@ export const useUser = () => {
   const [user, setUser] = useState<any>();
   useEffect(() => {
     getCurrentUser();
-  }, [user]);
+  }, [user?.name]);
 
   const getCurrentUser = async () => {
     const { data: currentUser } = await supabase.auth.getUser();
@@ -25,8 +25,7 @@ export const useUser = () => {
       .from("users")
       .update({ name: name })
       .eq("id", id);
-    if (!error) {
-    } else alert(error.message);
+    if (!error) getCurrentUser();
   };
 
   return [{ user, updateUsername }];
@@ -65,9 +64,9 @@ export const useUserIcon = () => {
         cacheControl: "3600",
         upsert: true,
       });
-    if (error) alert(error.message);
-    else {
+    if (!error) {
       alert("upload your icon");
+      getUserIcon();
     }
   };
 

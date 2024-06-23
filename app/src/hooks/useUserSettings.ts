@@ -6,7 +6,7 @@ export const useUserSettings = () => {
 
   useEffect(() => {
     getUserSettings();
-  }, [userSetting]);
+  }, [userSetting?.color, userSetting?.darkmode]);
 
   const getUserSettings = async () => {
     const { data: currentUser } = await supabase.auth.getUser();
@@ -24,7 +24,6 @@ export const useUserSettings = () => {
       .from("user_settings")
       .update({ color: color })
       .eq("user_id", id);
-    if (error) alert(error.message);
   };
 
   const toggleDarkMode = async (id: string | undefined, darkmode: boolean) => {
@@ -32,7 +31,6 @@ export const useUserSettings = () => {
       .from("user_settings")
       .update({ darkmode: darkmode })
       .eq("user_id", id);
-    if (error) alert(error.message);
   };
 
   return [{ userSetting, updateUserColor, toggleDarkMode }];
