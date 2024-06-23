@@ -85,7 +85,7 @@ export const ClothSettingModal: React.FC<ClothSettingModal> = ({
               onChange={(e) => setType(e.target.value)}
               opacity={type ? "1" : "0.5"}
             >
-              <option value="" selected hidden>
+              <option value="" hidden>
                 type
               </option>
               <option value={"tops"}>tops</option>
@@ -99,7 +99,7 @@ export const ClothSettingModal: React.FC<ClothSettingModal> = ({
               onChange={(e) => setColor(e.target.value)}
               opacity={color ? "1" : "0.5"}
             >
-              <option value="" selected hidden>
+              <option value="" hidden>
                 color
               </option>
               <option value={"black"}>black</option>

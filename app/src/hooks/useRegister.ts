@@ -20,7 +20,7 @@ export const useRegister = () => {
       } else {
         navigate("/");
       }
-    } else alert(error);
+    }
   };
 
   const createAccount = async (email: string, password: string) => {
@@ -31,7 +31,7 @@ export const useRegister = () => {
     if (!error) {
       alert("send mail to your address!");
       navigate("/login");
-    } else alert(error.message);
+    }
   };
 
   const InsertUserTable = async (name: string) => {
@@ -44,13 +44,11 @@ export const useRegister = () => {
         email: currentUser.user?.email,
       })
       .select();
-    if (error) alert(error.message);
-    else {
+    if (!error) {
       const { error } = await supabase
         .from("user_settings")
         .insert({ user_id: data[0].id });
-      if (error) alert(error.message);
-      else navigate("/");
+      if (!error) navigate("/");
     }
   };
 

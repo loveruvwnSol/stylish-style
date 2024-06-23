@@ -10,7 +10,7 @@ export const useClothes = () => {
   useEffect(() => {
     getClothes();
     getFavoriteClothes();
-  }, [clothes, favClothes]);
+  }, []);
 
   const getClothes = async () => {
     const { data: currentUser } = await supabase.auth.getUser();
@@ -20,7 +20,7 @@ export const useClothes = () => {
       .eq("user_id", currentUser.user?.id);
     if (!error) {
       setClothes(data);
-    } else alert(error.message);
+    }
   };
 
   const getFavoriteClothes = async () => {
@@ -32,7 +32,7 @@ export const useClothes = () => {
       .eq("favorite", true);
     if (!error) {
       setFavClothes(data);
-    } else alert(error.message);
+    }
   };
 
   const uploadClothes = async (
@@ -63,8 +63,10 @@ export const useClothes = () => {
           cacheControl: "3600",
           upsert: false,
         });
-      if (error) alert(error.message);
-      else alert("upload your clothes");
+      if (!error) {
+        alert("upload your clothes");
+        await window.location.reload();
+      }
     }
   };
 
@@ -78,8 +80,7 @@ export const useClothes = () => {
       .from("clothes")
       .update({ name: name, favorite: favorite, color: color })
       .eq("id", id);
-    if (error) alert(error.message);
-    else alert("update your clothes");
+    if (!error) alert("update your clothes");
   };
 
   const updateClothesImage = async (
@@ -93,8 +94,7 @@ export const useClothes = () => {
         cacheControl: "3600",
         upsert: true,
       });
-    if (error) alert(error.message);
-    else alert("update your clothes image");
+    if (!error) alert("update your clothes image");
   };
 
   const toggleFavorite = async (id: number, favorite: boolean) => {
@@ -102,7 +102,6 @@ export const useClothes = () => {
       .from("clothes")
       .update({ favorite: !favorite })
       .eq("id", id);
-    if (error) alert(error.message);
   };
 
   const deleteClothes = async (id: number, user_id: string | undefined) => {
@@ -116,11 +115,6 @@ export const useClothes = () => {
       const { error } = await supabase.storage
         .from("clothes")
         .remove([user_id + "/" + id + "_image"]);
-      if (error) {
-        alert(error.message);
-      }
-    } else {
-      alert(error.message);
     }
   };
 
@@ -148,8 +142,8 @@ export const useClothes = () => {
       if (!error) {
         setTop(tops[Math.floor(Math.random() * tops.length)].id);
         setBottom(bottoms[Math.floor(Math.random() * bottoms.length)].id);
-      } else alert(error.message);
-    } else alert(error.message);
+      }
+    }
   };
 
   const getStyle = () => {
