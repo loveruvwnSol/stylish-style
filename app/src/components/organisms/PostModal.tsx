@@ -1,7 +1,6 @@
 import { Modal, Text } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { UploadImageModal } from '../molecules/UploadImageModal';
-import { ClothSettingModal } from '../molecules/ClothSettingModal';
 import { PostSettingModal } from './PostSettingModal';
 
 type PostModal = {
