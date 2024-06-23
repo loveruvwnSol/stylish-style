@@ -1,12 +1,13 @@
-import { Text } from '@chakra-ui/react';
-import React from 'react';
+import { Text } from "@chakra-ui/react";
+import React from "react";
 
 type LikeCntProps = {
-  cnt: String;
+  cnt: number | undefined;
+  color:string
 };
 
-const LikeCnt: React.FC<LikeCntProps> = ({ cnt }) => {
-  return <Text textColor={'gray'}>{cnt}</Text>;
+const LikeCnt: React.FC<LikeCntProps> = ({ cnt ,color}) => {
+  return <Text textColor={color}>{cnt}</Text>;
 };
 
 export default LikeCnt;
