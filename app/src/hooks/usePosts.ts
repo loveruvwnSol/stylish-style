@@ -24,14 +24,17 @@ export const usePosts = () => {
       .insert({ user_id: user_id, brand_name: brand_name, text: text })
       .select();
     if (!error) {
-      const { data: allPostsLength } = await supabase.from("clothes").select();
+      const { data: allPostsLength } = await supabase.from("posts").select();
       const { error } = await supabase.storage
         .from("posts")
         .upload(allPostsLength?.length + "/image", file, {
           cacheControl: "3600",
           upsert: false,
         });
-      if (!error) alert("upload your post");
+      if (!error) {
+        alert("upload your post");
+        await window.location.reload();
+      }
     }
   };
 

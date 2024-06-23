@@ -1,14 +1,21 @@
-import { Box, Icon } from '@chakra-ui/react';
-import { CiHeart } from 'react-icons/ci';
-const LikeBtn = () => {
+import { Icon } from "@chakra-ui/react";
+import { IconType } from "react-icons";
+import { CiHeart } from "react-icons/ci";
+
+type LikeBtnProps = {
+  icon: IconType;
+  fill: string;
+};
+
+const LikeBtn: React.FC<LikeBtnProps> = ({ icon, fill }) => {
   return (
-    <Box>
-      <Icon
-        as={CiHeart}
-        boxSize={7}
-        verticalAlign={'middle'}
-      />
-    </Box>
+    <Icon
+      as={icon}
+      fill={fill}
+      color={"red"}
+      boxSize={7}
+      verticalAlign={"middle"}
+    />
   );
 };
 

@@ -1,63 +1,60 @@
-import React, { useState } from 'react';
-import { Box, Modal, useDisclosure } from '@chakra-ui/react';
-import HeaderTitle from '../atoms/HeaderTitle';
-import SubmitBtn from '../molecules/SubmitBtn';
-import Post from '../molecules/Post';
-import { ClothSettingModal } from '../molecules/ClothSettingModal';
-import { PostModal } from '../organisms/PostModal';
-import { on } from 'events';
-import { AddClothModal } from '../organisms/AddClothModal';
+import { Box, Modal, useDisclosure } from "@chakra-ui/react";
+import HeaderTitle from "../atoms/HeaderTitle";
+import SubmitBtn from "../molecules/SubmitBtn";
+import Post from "../molecules/Post";
+import { PostModal } from "../organisms/PostModal";
+import { usePosts } from "../../hooks/usePosts";
+import { supabase } from "../../libs/supabaseClient";
 
 const ShareBoard = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [isUploaded, setIsUploaded] = useState(false);
-  const [file, setFile] = useState<any>();
-  const [preview, setPreview] = useState<string>('');
-
-  const handleChangeFile = (newFile: any) => {
-    setFile(newFile);
-  };
+  const [{ posts }] = usePosts();
 
   return (
     <>
       <Box
         w={1080}
         h={700}
-        pl={'4rem'}
-        pr={'4rem'}
-        position={'relative'}
-        overflowY={'scroll'}
+        pl={"4rem"}
+        pr={"4rem"}
+        position={"relative"}
+        overflowY={"scroll"}
       >
         <Box
-          display={'flex'}
-          justifyContent={'space-between'}
-          alignItems={'end'}
-          pb={'0.5rem'}
+          display={"flex"}
+          justifyContent={"space-between"}
+          alignItems={"end"}
+          pb={"0.5rem"}
         >
-          <HeaderTitle text={'Share'} />
+          <HeaderTitle text={"Share"} />
         </Box>
         <Box>
-          <Post />
-          <Post />
-          <Post />
+          {posts.map((e, idx) => {
+            const { data: user_icon } = supabase.storage
+              .from("user_icons")
+              .getPublicUrl(e.user_id + "/icon");
+            const { data: post_image } = supabase.storage
+              .from("posts")
+              .getPublicUrl(e.id + "/image");
+            const { data: a } = supabase.storage
+              .from("posts")
+              .getPublicUrl(e.id + "/image");
+            return (
+              <Post
+                data={e}
+                key={idx}
+                user_icon={user_icon.publicUrl}
+                post_image={post_image.publicUrl}
+              />
+            );
+          })}
         </Box>
-        <Box
-          position={'fixed'}
-          bottom={20}
-          right={32}
-          onClick={onOpen}
-        >
-          <SubmitBtn text='Post' />
+        <Box position={"fixed"} bottom={"10%"} right={"6%"} onClick={onOpen}>
+          <SubmitBtn text="Post" />
         </Box>
       </Box>
-      <Modal
-        isOpen={isOpen}
-        onClose={onClose}
-      >
-        <PostModal
-          onClose={onClose}
-          isOpen={isOpen}
-        />
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <PostModal onClose={onClose} isOpen={isOpen} />
       </Modal>
     </>
   );
